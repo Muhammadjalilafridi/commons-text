@@ -174,6 +174,12 @@
               <exclude>src/test/resources/org/apache/commons/text/stringEscapeUtilsTestData.txt</exclude>
               <exclude>src/test/resources/org/apache/commons/text/lcs-perf-analysis-inputs.csv</exclude>
               <exclude>src/site/resources/release-notes/RELEASE-NOTES-*.txt</exclude>
+              <exclude>evosuite-report/</exclude>
+              <exclude>evosuite-tests/</exclude>
+              <exclude>tools/</exclude>
+              <exclude>jacoco/</exclude>
+              <exclude>pit-reports/</exclude>
+              <exclude>dependency-check-report.html</exclude>
             </excludes>
           </configuration>
         </plugin><!-- override skip property of parent pom -->
@@ -266,7 +272,21 @@
           <source>${maven.compiler.source}</source>
         </configuration>
       </plugin>
-
+     
+      <!--Pitest-->
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.15.3</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>1.1.2</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+     
       <!--JaCoCo v1-->
       <plugin>
         <groupId>org.jacoco</groupId>
@@ -287,6 +307,20 @@
             </execution>
           </executions>
         </plugin>
+
+    <!--OWASP DC-->
+        <plugin>
+          <groupId>org.owasp</groupId>
+          <artifactId>dependency-check-maven</artifactId>
+          <version>9.0.8</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin> 
     </plugins>
   </build>
 
