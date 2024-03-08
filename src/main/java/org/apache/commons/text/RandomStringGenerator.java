@@ -469,6 +469,6 @@ public final class RandomStringGenerator {
         if (random != null) {
             return String.valueOf(characterList.get(random.nextInt(listSize))).codePointAt(0);
         }
-        return String.valueOf(characterList.get(ThreadLocalRandom.current().nextInt(0, listSize))).codePointAt(0);
-    }
+         return String.valueOf(characterList.get(secureRandom.nextInt(listSize))).codePointAt(0);
+    }  
 }
