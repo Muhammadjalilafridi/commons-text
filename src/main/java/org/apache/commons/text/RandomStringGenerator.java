@@ -466,6 +466,7 @@ public final class RandomStringGenerator {
      */
     private int generateRandomNumber(final List<Character> characterList) {
         final int listSize = characterList.size();
+        SecureRandom secureRandom = new SecureRandom();
         if (random != null) {
             return String.valueOf(characterList.get(random.nextInt(listSize))).codePointAt(0);
         }
