@@ -321,6 +321,31 @@
             </execution>
           </executions>
         </plugin> 
+
+     <plugin>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-maven-plugin</artifactId>
+            <version>4.2.3</version> <!-- Use the latest version -->
+            <dependencies>
+                <!-- FindSecBugs plugin -->
+                <dependency>
+                    <groupId>com.h3xstream.findsecbugs</groupId>
+                    <artifactId>findsecbugs-plugin</artifactId>
+                    <version>1.11.0</version> <!-- Use the latest version -->
+                </dependency>
+            </dependencies>
+            <configuration>
+                <effort>Max</effort>
+                <threshold>Low</threshold>
+                <plugins>
+                    <plugin>
+                        <groupId>com.h3xstream.findsecbugs</groupId>
+                        <artifactId>findsecbugs-plugin</artifactId>
+                        <version>1.11.0</version>
+                    </plugin>
+                </plugins>
+            </configuration>
+        </plugin>
     </plugins>
   </build>
 
